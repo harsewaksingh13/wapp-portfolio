@@ -7,6 +7,8 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+
+
 export default function Index() {
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
@@ -17,6 +19,7 @@ export default function Index() {
             target="_blank"
             href="https://remix.run/tutorials/blog"
             rel="noreferrer"
+            className="text-lg text-blue-600 hover:underline"
           >
             15m Quickstart Blog Tutorial
           </a>
