@@ -1,3 +1,38 @@
+/**
+ * This injects Tailwind's base styles and any base styles registered by
+ * plugins.
+ */
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+/**
+ * This injects Tailwind's component classes and any component classes
+ * registered by plugins.
+ */
+ @tailwind components;
+
+ /**
+  * This injects Tailwind's utility classes and any utility classes registered
+  * by plugins.
+  */
+ @tailwind utilities;
+
+ /* @layer base {
+
+    :root {
+      --color-primary: 247 147 34;
+      --color-text: 33 33 33;
+      --color-success: 0 200 81;
+      --color-info: 51 181 229;
+      --color-warn: 255 187 51;
+      --color-error: 254 78 78;
+    }
+  
+    :root[class~="dark"] {
+      --color-primary: 247 147 34;
+      --color-text: 33 33 33;
+      --color-success: 0 200 81;
+      --color-info: 51 181 229;
+      --color-warn: 255 187 51;
+      --color-error: 254 78 78;
+    } */
+  /* } */
