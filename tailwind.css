@@ -16,11 +16,13 @@
   */
  @tailwind utilities;
 
- /* @layer base {
+ @layer base {
 
     :root {
       --color-primary: 247 147 34;
-      --color-text: 33 33 33;
+      --color-primary-light: 247 204 154;
+      --color-text: 0 0 30;
+      /* --color-text: 245 255 255; */
       --color-success: 0 200 81;
       --color-info: 51 181 229;
       --color-warn: 255 187 51;
@@ -29,10 +31,11 @@
   
     :root[class~="dark"] {
       --color-primary: 247 147 34;
-      --color-text: 33 33 33;
+      --color-primary-light: 247 204 154;
+      --color-text: 245 255 255;
       --color-success: 0 200 81;
       --color-info: 51 181 229;
       --color-warn: 255 187 51;
       --color-error: 254 78 78;
-    } */
-  /* } */
+    }
+  } 

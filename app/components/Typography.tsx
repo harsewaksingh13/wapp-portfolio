@@ -26,7 +26,7 @@ export const Text = (props: TextProps) => {
     const tf = props.ts || TextFont.Regular
 
     return (
-        <h6 className="leading-none tracking-tight text-gray-900 md:text-1xl lg:text-3xl dark:text-white">
+        <h6 className="leading-none tracking-tight text-primaryText md:text-1xl lg:text-4xl">
             {props.children}
         </h6>
         // <p className=" text-gray-900 dark:text-white">

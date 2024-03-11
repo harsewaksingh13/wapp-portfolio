@@ -9,13 +9,19 @@ import colors from 'tailwindcss/colors'
 // transparent: "transparent",
 // current: "currentColor",
 export default {
+  darkMode: 'selector',
   content: ["./app/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      // textColor: {
-      //   primary: "rgb(var(--color-text) / <alpha-value>)",
-      //   secondary: colors.gray[600]
-      // }
+      colors: {
+          primary: "rgb(var(--color-primary) / <alpha-value>)",
+          primaryLight: "rgb(var(--color-primary-light) / <alpha-value>)"
+      },
+      textColor: {
+        primaryText: "rgb(var(--color-text) / <alpha-value>)",
+        secondaryText: colors.slate[400],
+        // teriteryText: () => {return colors.gray[600].toString}
+      }
     },
   },
   plugins: [],

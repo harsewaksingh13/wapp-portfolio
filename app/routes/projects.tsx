@@ -1,12 +1,24 @@
 
 
-import { PageContent, PageListContent } from "~/pages"
-import { Text } from "~/components"
+import { Page, PageContent, PageListContent } from "~/pages"
+import { Header, Text } from "~/components"
+import { MetaFunction } from "@remix-run/node";
+
+
+export const meta: MetaFunction = () => {
+    return [
+      { title: "The portfolio - Projects" },
+      { name: "description", content: "Welcome to Remix!" },
+    ];
+  };
 
 export default function ProjectsPage() {
     return (
-        <PageListContent title="Projects">
-            <Text> Page About Contents </Text>
-        </PageListContent>
+        <Page>
+            <Header />
+            <PageListContent title="Projects">
+                <Text> Page About Contents </Text>
+            </PageListContent>
+        </Page>
     )
 }
