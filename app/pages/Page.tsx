@@ -9,7 +9,7 @@ export interface PageProps {
 */
 export const Page = (props: PageProps) => {
     return (
-        <div className="pl-4 pr-4 bg-white dark:bg-gray-800 min-h-screen">
+        <div className="bg-white dark:bg-gray-800 min-h-screen">
             {props.children}
         </div>
     )

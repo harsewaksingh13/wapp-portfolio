@@ -1,5 +1,10 @@
 import { ReactNode } from "react"
 
+
+export interface BaseProps {
+    children?: ReactNode
+}
+
 /* 
 *
 * Define all typography styles

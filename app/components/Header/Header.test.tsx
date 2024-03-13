@@ -5,7 +5,7 @@ const items = [{ title: "Item 1" }, { title: "Item 2" }]
 
 describe("Header component", () => {
     it("has at least 1 item", () => {
-        render(<Header/>);
+        render(<Header items={[]}/>);
         expect(screen.findByTestId("navbar-logo")).toBeInTheDocument()
     });
 });

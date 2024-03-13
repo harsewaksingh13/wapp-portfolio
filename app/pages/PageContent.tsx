@@ -5,7 +5,6 @@ import { ReactNode } from "react";
 
 export interface PageContentProps extends PageProps {
     title?: string | "Page Title"
-    children: ReactNode
 }
 
 export const PageContent = (props: PageContentProps) => {

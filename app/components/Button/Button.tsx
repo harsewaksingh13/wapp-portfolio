@@ -1,6 +1,6 @@
 import { TextProps } from ".."
 
-export interface ButtonProps extends TextProps {
+export interface ButtonProps extends TextProps, React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
 
 }
 
@@ -11,7 +11,7 @@ export interface ButtonProps extends TextProps {
  */
 export const Button = (props: ButtonProps) => {
     return (
-        <button className="text-primaryText active:text-primaryLight hover:text-primary">{props.children}</button>
+        <button {...props} className="text-primaryText active:text-primaryLight hover:text-primary">{props.children}</button>
     )
 }
 

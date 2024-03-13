@@ -20,6 +20,7 @@ export const links: LinksFunction = () => [
 ];
 
 export const themeMode = "dark"
+// export const themeMode = "light"
 
 export function ErrorBoundary() {
   const error = useRouteError();
@@ -40,7 +41,7 @@ export function ErrorBoundary() {
             {
               (is404) ? (<ErrorNotFound />) :
                 (error instanceof Error) ? (
-                  <div>
+                  <div className="text-primaryText">
                     <h1>Error</h1>
                     <p>{error.message}</p>
                     <p>The stack trace is:</p>
