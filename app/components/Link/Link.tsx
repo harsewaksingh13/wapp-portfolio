@@ -17,3 +17,17 @@ export const Link = (props: LinkProps) => {
     const normalClass = "text-primaryText active:text-primaryLight hover:text-primary"
     return <RemixLink className={props.selected == true ? selectedClass : normalClass} {...props}>{props.children}</RemixLink>
 }
+
+
+export const LinkButtonPrimary = (props: LinkProps) => {
+    return <RemixLink  className="text-3xl rounded-md bg-primary px-6 py-3 font-medium text-white transition-colors hover:bg-primary active:bg-primaryLight hover:text-primaryLight" {...props}>{props.children}</RemixLink>
+}
+
+export const LinkButtonPrimaryMedium = (props: LinkProps) => {
+    return <RemixLink  className="text-1xl rounded-md bg-primary px-4 py-2 font-medium text-white transition-colors hover:bg-primary active:bg-primaryLight hover:text-primaryLight" {...props}>{props.children}</RemixLink>
+}
+
+export const LinkText = (props: LinkProps) => {
+    return <RemixLink  className="leading-none font-semibold text-primaryText text-2xl md:text-3xl lg:text-4xl" {...props}>{props.children}</RemixLink>
+}
+{/* <h6 className="leading-none font-semibold text-primaryText text-2xl md:text-3xl lg:text-4xl"></h6> */}

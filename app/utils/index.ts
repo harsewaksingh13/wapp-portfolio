@@ -1,2 +1,2 @@
 export * from './test'
-export * from './document-utils'
+export * from './dom'

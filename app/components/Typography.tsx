@@ -31,7 +31,7 @@ export const Text = (props: TextProps) => {
     const tf = props.ts || TextFont.Regular
 
     return (
-        <h6 className="leading-none tracking-tight text-primaryText md:text-1xl lg:text-4xl">
+        <h6 className="leading-none font-semibold text-primaryText text-2xl md:text-3xl lg:text-4xl">
             {props.children}
         </h6>
         // <p className=" text-gray-900 dark:text-white">

@@ -1,7 +1,5 @@
+import { Item } from "~/components"
 
-export interface Item {
-    title: string
-}
 
 export interface ListProps<I extends Item> {
     items: I[]
