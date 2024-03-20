@@ -3,7 +3,7 @@ export function scrollTo(to?: string) {
         console.log('scrollto', to)
         const element = document.getElementById(to)
         console.log('element', element)
-        element?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        element?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
         return element != null
     }
     return false

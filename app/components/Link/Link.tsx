@@ -13,7 +13,7 @@ export interface LinkProps extends TextProps, RemixLinkProps {
  * @returns a basic link wrapper
  */
 export const Link = (props: LinkProps) => {
-    const selectedClass = "rounded-md bg-primary px-2 py-1 font-medium text-white transition-colors hover:bg-primary active:bg-primaryLight hover:text-white"
+    const selectedClass = "font-medium text-primary border-b-text-primary transition-colors active:text-primaryLight"
     const normalClass = "text-primaryText active:text-primaryLight hover:text-primary"
     return <RemixLink className={props.selected == true ? selectedClass : normalClass} {...props}>{props.children}</RemixLink>
 }

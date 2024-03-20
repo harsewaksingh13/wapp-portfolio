@@ -15,7 +15,7 @@ export const meta: MetaFunction = () => {
 export default function ArticlesPage() {
     return (
         <Page>
-            <PageListContent title="Articles">
+            <PageListContent title="Articles" items={[]}>
                 <Text> Page About Contents </Text>
             </PageListContent>
         </Page>

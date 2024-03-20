@@ -1,8 +1,7 @@
-import { scrollTo } from "~/utils"
-import { BaseProps, Item, ListProps } from ".."
-import { Button, ButtonPrimary } from "../Button/Button"
+import { Item, ListProps } from ".."
+import { Button } from "../Button/Button"
 import { Link } from "../Link"
-import { redirect, useLocation, useMatches, useNavigate } from "@remix-run/react"
+import { useLocation, useMatches, useNavigate } from "@remix-run/react"
 
 export type HeaderItem = {
     href?: string | null //navigate to link
@@ -15,11 +14,13 @@ export const Header = (props: HeaderProps) => {
 
     let navigator = useNavigate()
 
-    // const matches = useMatches();
-    // console.log("matches", matches)
-    // let { pathname } = matches.length > 2 ? matches[2] : { pathname: "/" }
-    // console.log("pathname", pathname)
-   
+    const matches = useMatches();
+    let { pathname } = matches.length > 2 ? matches[2] : { pathname: "/" }
+    const location = useLocation()
+    const { hash } = location
+    const selectedLink = pathname == '/' ? pathname + hash : pathname
+
+
     return (
         <header className="mb-2 sticky border-b-[0.3px] top-0 md:sticky md:top-0 bg-white dark:bg-gray-800">
             <div className="relative flex max-w-screen-xl flex-col overflow-hidden py-2 md:py-4 md:mx-auto md:flex-row">
@@ -54,15 +55,11 @@ export const Header = (props: HeaderProps) => {
                             props.items.map((item) => {
                                 return <li key={item.content_id}>
                                     {item.href ?
-                                        <Link to={item.href}>{item.title}</Link>
+                                        <Link selected={selectedLink == item.href} to={item.href}>{item.title}</Link>
                                         :
                                         <Button onClick={() => {
                                             if (item.content_id) {
-                                                // if (!scrollTo(item.content_id)) {
-                                                    // navigator('/')
-                                                // } else {
-                                                    navigator(item.content_id)
-                                                // }
+                                                navigator(item.content_id)
                                             } else if (item.href) {
                                                 navigator(item.href)
                                             }

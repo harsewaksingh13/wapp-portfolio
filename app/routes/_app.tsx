@@ -25,22 +25,29 @@ export type HomeItem = {
   title?: string
   subTitle?: string
   description?: string
+  href?: string
 }
 
-export const items :HomeSection[] = [{
+export const items: HomeSection[] = [{
   id: '#home',
   title: '',
   header_title: 'Home',
-  header_href:'/',
+  header_href: '/',
   type: 'hero',
   href: '/#home-projects',
+  items: [{
+    title: 'Bring all your work together',
+    description: 'A better experience for your clients and less stress you to explain.',
+    image: '',
+    href: '/#home-projects',
+  }]
 },
 {
   id: '#home-skills',
   title: 'Skills',
   header_title: 'Skills',
   header_href: '/#home-skills',
-  href:'/#home-skills',
+  href: '/#home-skills',
   type: 'skills',
   items: [
     {
@@ -54,8 +61,8 @@ export const items :HomeSection[] = [{
   id: '#home-projects',
   title: 'Projects',
   header_title: 'Projects',
-  header_href:'/#home-projects',
-  href:'/projects',
+  header_href: '/#home-projects',
+  href: '/projects',
   type: 'projects',
   items: [
     {
@@ -65,21 +72,21 @@ export const items :HomeSection[] = [{
     }
   ]
 },
-// {
-//   id: '#home-clients',
-//   title: 'Clients',
-//   header_title: 'Clients',
-//   other_cta: 'View all',
-//   href:'/#home-clients',
-//   type: 'clients',
-//   items: [
-//     {
-//       title: 'The portofilio - Techniers',
-//       description: 'Let the world know who you are',
-//       image: ''
-//     }
-//   ]
-// }
+  // {
+  //   id: '#home-clients',
+  //   title: 'Clients',
+  //   header_title: 'Clients',
+  //   other_cta: 'View all',
+  //   href:'/#home-clients',
+  //   type: 'clients',
+  //   items: [
+  //     {
+  //       title: 'The portofilio - Techniers',
+  //       description: 'Let the world know who you are',
+  //       image: ''
+  //     }
+  //   ]
+  // }
 ]
 
 

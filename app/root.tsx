@@ -42,10 +42,10 @@ export function ErrorBoundary() {
               (is404) ? (<ErrorNotFound />) :
                 (error instanceof Error) ? (
                   <div className="text-primaryText">
-                    <h1>Error</h1>
+                    <h1>Error message:</h1>
                     <p>{error.message}</p>
                     <p>The stack trace is:</p>
-                    <pre>{error.stack}</pre>
+                    <code >{error.stack}</code>
                   </div>
                 ) : (<h1>Unknown Error</h1>)
             }

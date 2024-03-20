@@ -19,10 +19,11 @@ export default function Home() {
       case 'skills': return <Tags tags={
         [{ title: 'Tyescript' }, { title: 'Java' },
         { title: 'C++' }, { title: 'Swift' },
-        { title: 'Kotlin' }, { title: 'Javascript' }, { title: 'Kotline multiplatform' },
+        { title: 'Kotlin' }, { title: 'Javascript' }, { title: 'Kmm' },
         { title: 'React Native' }, { title: 'Mongodb' }, { title: 'Nodejs' },
         { title: 'android' }, { title: 'iOS' }, { title: 'Html' },
-        { title: 'Css' }, { title: 'iOS' }, { title: 'Html' }
+        { title: 'Css' }, { title: 'remix' }, { title: 'swiftui' }, { title: 'compose' },
+        { title: 'rxjava' }, { title: 'di' }
         ]}></Tags>
       case 'projects': return <ListHorizontal items={[
         {
@@ -80,7 +81,7 @@ export interface SkillTagProps {
 
 const SkillTag = (props: SkillTagProps) => {
   return <div
-    className="m-2 text-2xl inline-flex items-center font-bold leading-sm px-3 p-4 bg-orange-200 text-orange-700 rounded-full"
+    className="m-2 inline-flex items-center font-bold leading-sm px-3 p-4 pr-5 bg-orange-200 text-orange-700 rounded-full"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
