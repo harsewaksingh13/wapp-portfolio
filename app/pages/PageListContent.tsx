@@ -1,7 +1,6 @@
-import { DropList } from "~/components/DropList"
-import { Page, PageContent, PageContentProps } from "."
-import { Item, ItemProps, List, ListProps, Text } from "~/components"
-import { ListHorizontalFixed } from "~/components/Listing/ListHorizontal/ListHorizontal"
+import { PageContent, PageContentProps } from "."
+import { ItemProps, List, ListProps, ListHorizontalFixed, DropList } from "~/components"
+
 
 export interface PageListContentProps<I extends ItemProps> extends PageContentProps, ListProps<I> {
 

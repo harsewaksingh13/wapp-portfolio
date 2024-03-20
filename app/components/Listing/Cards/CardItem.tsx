@@ -14,7 +14,7 @@ export const CardItem = (props: CardItemProps) => {
         <div className="max-w-4xl">
             <div className="bg-white dark:bg-slate-800 shadow-md border border-gray-200 dark:border-gray-400 rounded-lg max-w-3xl mb-5">
                 <a href="#">
-                    <img className="rounded-t-lg max-h-85 w-full" src="" alt="" />
+                    <img className="rounded-t-lg max-h-85 w-full" src="https://unsplash.com/blog/content/images/2024/02/Hour-for-Earth--Blog-.gif" alt="" />
                 </a>
                 <div className="p-5 min-w-72">
                     <a href="#">

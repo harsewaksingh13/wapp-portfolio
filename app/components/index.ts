@@ -1,5 +1,4 @@
 export * from './Typography'
-export * from './List'
 export * from './Header'
 export * from './Button'
 export * from './Link'

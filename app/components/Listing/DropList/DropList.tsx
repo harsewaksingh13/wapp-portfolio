@@ -1,4 +1,4 @@
-import { Item } from ".."
+import { Item } from "../.."
 
 
 export interface DropListProps<I extends Item> {
