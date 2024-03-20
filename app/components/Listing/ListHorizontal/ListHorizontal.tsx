@@ -6,7 +6,7 @@ export interface ListHorizontalProps<I extends ItemProps> extends ListProps<I> {
 export const ListHorizontal = <I extends ItemProps,>(props: ListHorizontalProps<I>) => {
     return (
         <div>
-            <ul className="flex flex-wrap lg:flex-nowrap items-center justify-center">
+            <ul className="flex flex-wrap lg:flex-nowrap overflow-y-auto">
                 {
                     props.items.map((item) => {
                         return (<li className="mr-4" key={item.title} >

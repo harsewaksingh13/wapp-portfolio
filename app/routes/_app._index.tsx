@@ -9,6 +9,21 @@ export default function Home() {
   const location = useLocation()
   const { hash } = location
 
+const projects = [
+  {
+    title: 'Portfolio project',
+    children: <CardItem title={"Portfolio project"}></CardItem>
+  },
+  {
+    title: 'Portfolio project',
+    children: <CardItem title={"Portfolio project"}></CardItem>
+  },
+  {
+    title: 'Portfolio project',
+    children: <CardItem title={"Portfolio project"}></CardItem>
+  }
+]
+
   setTimeout(() => {
     scrollTo(hash)
   }, 200);
@@ -25,20 +40,7 @@ export default function Home() {
         { title: 'Css' }, { title: 'remix' }, { title: 'swiftui' }, { title: 'compose' },
         { title: 'rxjava' }, { title: 'di' }
         ]}></Tags>
-      case 'projects': return <ListHorizontal items={[
-        {
-          title: 'Portfolio project',
-          children: <CardItem title={"Portfolio project"}></CardItem>
-        },
-        {
-          title: 'Portfolio project',
-          children: <CardItem title={"Portfolio project"}></CardItem>
-        },
-        {
-          title: 'Portfolio project',
-          children: <CardItem title={"Portfolio project"}></CardItem>
-        }
-      ]}></ListHorizontal>
+      case 'projects': return <ListHorizontal items={projects}></ListHorizontal>
     }
     return <h1 className="text-primaryText"> No data to show</h1>
   }

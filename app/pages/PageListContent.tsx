@@ -8,7 +8,7 @@ export interface PageListContentProps<I extends ItemProps> extends PageContentPr
 }
 
 export const PageListContent = <I extends ItemProps,>(props: PageListContentProps<I>) => {
-
+    const hasItems = props.items && props.items.length > 0
     return (
         <PageContent>
             <div className="grid grid-cols-8 sm:grid-cols-10">
@@ -18,15 +18,15 @@ export const PageListContent = <I extends ItemProps,>(props: PageListContentProp
                 </div>
 
 
-                {props.items.length > 0 && <div className="col-span-2 hidden sm:block">
+                {hasItems && <div className="col-span-2 hidden sm:block">
                     <div className="fixed pr-20 pt-4">
                         <List {...props} items={
                             props.items
                         }></List>
                     </div>
                 </div>}
-
-                <div className="col-span-8 overflow-y-hidden">
+                
+                <div className={`${hasItems ? 'col-span-8': 'col-span-10'} overflow-y-hidden`}>
                     <PageContent {...props}>
                         {props.children}
                     </PageContent>

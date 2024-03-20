@@ -16,7 +16,7 @@ export const CardItem = (props: CardItemProps) => {
                 <a href="#">
                     <img className="rounded-t-lg max-h-85 w-full" src="" alt="" />
                 </a>
-                <div className="p-5">
+                <div className="p-5 min-w-72">
                     <a href="#">
                         <h5 className="text-primaryText font-bold text-2xl tracking-tight mb-2">Noteworthy technology acquisitions 2021</h5>
                     </a>
