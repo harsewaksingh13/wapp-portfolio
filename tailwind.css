@@ -1,22 +1,13 @@
-/**
- * This injects Tailwind's base styles and any base styles registered by
- * plugins.
- */
-@tailwind base;
+@import "./code.css";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-/**
- * This injects Tailwind's component classes and any component classes
- * registered by plugins.
- */
- @tailwind components;
+.markdown > * {
+  all: revert;
+}
 
- /**
-  * This injects Tailwind's utility classes and any utility classes registered
-  * by plugins.
-  */
- @tailwind utilities;
-
- @layer base {
+@layer base {
 
     :root {
       --color-primary: 247 147 34;

@@ -53,7 +53,7 @@ export const Header = (props: HeaderProps) => {
                     <ul className="flex flex-rows items-center space-x-4 space-y-0 md:ml-auto md:flex-row md:space-y-0 md:space-x-4">
                         {
                             props.items.map((item) => {
-                                return <li key={item.content_id}>
+                                return <li key={item.content_id || item.href}>
                                     {item.href ?
                                         <Link selected={selectedLink == item.href} to={item.href}>{item.title}</Link>
                                         :
