@@ -35,7 +35,6 @@ export const loader = async ({
 };
 
 export default function ArticlePage() {
-    console.log("article dynamic page")
     let { attributes, body } = useLoaderData<typeof loader>();
 
     return (
@@ -60,7 +59,7 @@ export default function ArticlePage() {
                                 alt={alt} 
                                 src={src} 
                                 title={title} 
-                                style={{ maxHeight: 480, width: "100%" }}  />
+                                style={{ maxHeight: 480, width: "100%", objectFit:"cover" }}  />
                         ),
                     }
                 } >{body}</ReactMarkdown>
