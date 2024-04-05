@@ -15,6 +15,7 @@ type Article = {
 }
 type ArticleMeta = {
     title: string
+    tags: string[]
     publishDate: string
     description: string
 }
@@ -36,7 +37,7 @@ export const loader = async ({
 
 export default function ArticlePage() {
     let { attributes, body } = useLoaderData<typeof loader>();
-
+    let tags = attributes.meta.tags
     return (
         <PageContent title={attributes.title}>
 
