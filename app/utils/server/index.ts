@@ -1,1 +1,1 @@
-export * from './server'
+export * from './github.server'
