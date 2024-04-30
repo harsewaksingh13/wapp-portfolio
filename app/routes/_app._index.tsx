@@ -5,28 +5,30 @@ import { scrollTo } from "~/utils"
 import { Page, PageContent } from "~/pages"
 import { ReactNode } from "react"
 import { ListHorizontal } from "~/components/Listing/ListHorizontal/ListHorizontal"
+
+
 export default function Home() {
   const location = useLocation()
   const { hash } = location
 
-const projects = [
-  {
-    title: 'Portfolio project',
-    children: <CardItem href="/projects/project_healthera" title={"Portfolio project"}  description="In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available"></CardItem>
-  },
-  {
-    title: 'Portfolio project',
-    children: <CardItem title={"Portfolio project"} description="In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available"></CardItem>
-  },
-  {
-    title: 'Portfolio project',
-    children: <CardItem title={"Portfolio project"} description="In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available"></CardItem>
-  }
-]
+  const projects = [
+    {
+      title: 'Portfolio project',
+      children: <CardItem href="/projects/project_healthera" title={"Portfolio project"} description="In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available"></CardItem>
+    },
+    {
+      title: 'Portfolio project',
+      children: <CardItem title={"Portfolio project"} description="In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available"></CardItem>
+    },
+    {
+      title: 'Portfolio project',
+      children: <CardItem title={"Portfolio project"} description="In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available"></CardItem>
+    }
+  ]
 
   setTimeout(() => {
     scrollTo(hash)
-  }, 200);
+  }, 300);
 
   const sectionContent = (section: HomeSection) => {
     switch (section.type) {

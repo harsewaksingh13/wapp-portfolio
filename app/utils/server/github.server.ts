@@ -1,4 +1,6 @@
-import { accessToken, accountName, repoName } from ".";
+const accessToken = process.env.GIT_TOKEN
+const accountName = process.env.GIT_ACCOUNT
+const repoName = process.env.GIT_REPO
 
 export async function fetchMarkdownFile(fileName: string) {
 
