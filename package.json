@@ -8,7 +8,12 @@
     "dev": "remix dev --manual",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/index.js",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "jest": "jest",
+    "jest:watch": "jest --watch",
+    "prettier:check": "prettier --check \"**/*.{ts,tsx}\"",
+    "prettier:write": "prettier --write \"**/*.{ts,tsx}\"",
+    "test": "npm run typecheck && npm run jest"
   },
   "dependencies": {
     "@remix-run/css-bundle": "^2.8.0",
