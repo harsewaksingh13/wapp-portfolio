@@ -1,24 +1,25 @@
 import { ButtonPrimary, LinkButtonPrimary } from ".."
 
 export type HeroProps = {
-    title: string
-    subtitle?: string
+    title?: string
+    description?: string
     href?: string | undefined
-
+    button?: string
 }
 
 
 export const Hero = (props: HeroProps) => {
-
+    const { title, description, href, button } = props
     return (
         <div>
             <div className="lg:2/6 xl:w-2/4 mt-10 lg:ml-2 text-left">
-                <div className="lg:text-6xl md:text-4xl text-3xl font-semibold text-primaryText leading-none">Bring all your work together</div>
-                <div className="mt-6 text-xl font-light text-primaryText antialiased">A better experience for your clients and less stress you to explain.</div>
+                <div className="lg:text-6xl md:text-4xl text-3xl font-semibold text-primaryText leading-none">{title}</div>
+                <div className="mt-6 text-xl font-light text-primaryText antialiased">{description}</div>
                 <div className="mt-10">
-                    <LinkButtonPrimary to={props.href || '/'}>
-                        Projects
+                    {button && <LinkButtonPrimary to={href || '/'}>
+                        {button}
                     </LinkButtonPrimary>
+                    }
                 </div>
             </div>
             <div className="mt-10 lg:mt-24 lg:ml-15 text-left">

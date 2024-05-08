@@ -46,5 +46,5 @@ export async function fetchContents(path?: string) {
     throw Error(`Fetching Markdown file from GitHub failed with ${response.status}: ${response.statusText}`);
   }
 
-  return response
+  return response.text();
 }

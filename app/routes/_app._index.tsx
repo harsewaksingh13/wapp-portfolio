@@ -1,48 +1,39 @@
-import { CardItem, Hero, Section } from "~/components"
-import { HomeSection, items } from "./_app"
-import { useLocation } from "@remix-run/react"
+import { CardItem, Hero, Section, Tags } from "~/components"
+import { HomeSection } from "./_app"
+import { useLoaderData, useLocation } from "@remix-run/react"
 import { scrollTo } from "~/utils"
-import { Page, PageContent } from "~/pages"
-import { ReactNode } from "react"
+import { PageContent } from "~/pages"
 import { ListHorizontal } from "~/components/Listing/ListHorizontal/ListHorizontal"
+import { getHomeContent } from "~/utils/services"
+import { LoaderFunctionArgs } from "@remix-run/node"
+
+export const loader = async ({
+  params,
+}: LoaderFunctionArgs) => {
+  return getHomeContent()
+};
 
 
 export default function Home() {
+  let data = useLoaderData<typeof loader>();
+  const { items } = data
   const location = useLocation()
   const { hash } = location
-
-  const projects = [
-    {
-      title: 'Portfolio project',
-      children: <CardItem href="/projects/project_healthera" title={"Portfolio project"} description="In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available"></CardItem>
-    },
-    {
-      title: 'Portfolio project',
-      children: <CardItem title={"Portfolio project"} description="In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available"></CardItem>
-    },
-    {
-      title: 'Portfolio project',
-      children: <CardItem title={"Portfolio project"} description="In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available"></CardItem>
-    }
-  ]
-
   setTimeout(() => {
     scrollTo(hash)
   }, 300);
 
   const sectionContent = (section: HomeSection) => {
-    switch (section.type) {
-      case 'hero': return <Hero title='Welcome' href={section.href}></Hero>
-      case 'skills': return <Tags tags={
-        [{ title: 'Tyescript' }, { title: 'Java' },
-        { title: 'C++' }, { title: 'Swift' },
-        { title: 'Kotlin' }, { title: 'Javascript' }, { title: 'Kmm' },
-        { title: 'React Native' }, { title: 'Mongodb' }, { title: 'Nodejs' },
-        { title: 'android' }, { title: 'iOS' }, { title: 'Html' },
-        { title: 'Css' }, { title: 'remix' }, { title: 'swiftui' }, { title: 'compose' },
-        { title: 'rxjava' }, { title: 'di' }
-        ]}></Tags>
-      case 'projects': return <ListHorizontal items={projects}></ListHorizontal>
+    const listItems = section.items?.map((item) => {
+      return {
+        title: item.title,
+        children: <CardItem {...item}></CardItem>
+      }
+    }) || []
+    switch (section.view_type) {
+      case 'hero': return <Hero {...section.items?.[0]}></Hero>
+      case 'tags': return <Tags tags={section.items}></Tags>
+      case 'list': return <ListHorizontal items={listItems}></ListHorizontal>
     }
     return <h1 className="text-primaryText"> No data to show</h1>
   }
@@ -60,47 +51,4 @@ export default function Home() {
   )
 }
 
-type Tag = {
-  icon?: string | undefined
-  title: string
-}
 
-export type TagsProps = {
-  tags: Tag[]
-}
-
-const Tags = (props: TagsProps) => {
-  return (
-    <div className="flex-1">
-      {props.tags.map(t => {
-        return <SkillTag>{t.title}</SkillTag>
-      })}
-    </div>
-  )
-}
-
-export interface SkillTagProps {
-  children: ReactNode
-}
-
-const SkillTag = (props: SkillTagProps) => {
-  return <div
-    className="m-2 inline-flex items-center font-bold leading-sm px-3 p-4 pr-5 bg-orange-200 text-orange-700 rounded-full"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      className="feather feather-activity mr-2"
-    >
-      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-    </svg>
-    {props.children}
-  </div>
-}
