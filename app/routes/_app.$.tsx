@@ -3,17 +3,17 @@ import { useLoaderData } from "@remix-run/react";
 import { Attributes } from "react";
 import invariant from "tiny-invariant";
 import { Article, PageMarkdown } from "~/pages";
-import { fetchMarkdownFile, readPost } from "~/utils";
+import { fetchContents, fetchMarkdownFile } from "~/utils";
 import parseFrontMatter from 'front-matter';
 
 export const loader = async ({
     params,
 }: LoaderFunctionArgs) => {
-    console.log('oarams', params)
-    invariant(params.slug, "params.article is required");
-    const markdown = await fetchMarkdownFile(`${params.slug}.mdx`);
+    console.log('route params', params)
+    const path = params["*"]
+    const markdown = await fetchContents(`${path}.mdx`);
     if (!markdown) {
-        throw new Response('Not Found', { status: 404 });
+        throw new Response('File Not Found', { status: 404 });
     }
     // "attributes" contains the parsed frontmatter
     // "body" contains the Markdown string without the frontmatter
@@ -21,7 +21,7 @@ export const loader = async ({
     return { ...attributes, body }
 };
 
-export default function ProjectPage() {
+export default function ContentPage() {
     let article = useLoaderData<Article>();
     return (
         <PageMarkdown article={article} ></PageMarkdown>
