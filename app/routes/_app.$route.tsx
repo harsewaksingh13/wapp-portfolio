@@ -2,19 +2,21 @@ import { LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { CardItem } from "~/components";
 import { Grid } from "~/components/Listing/Grid/Grid";
-import { Page, PageListContent } from "~/pages";
+import { Attributes, Page, PageListContent } from "~/pages";
+import { fetchContents, fetchFileContents, fetchFiles } from "~/utils";
+import parseFrontMatter from 'front-matter';
+import { fetchAndProcessFiles } from "~/utils/services";
 
-export const loader = async ({
-    params,
-}: LoaderFunctionArgs) => {
-    const { route } = params
-    const items = [
-        {
-            title: 'How to markdown',
-            description: "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available",
-            href: "/articles/article-markdown"
-        }]
-    return { title: route, items: items }
+//Dynamically display content  as list of route  
+//http://localhost:3000/articles
+// http://localhost:3000/projects
+
+export const loader = async ({ params }: LoaderFunctionArgs) => {
+    const { route } = params 
+    
+    const items = await fetchAndProcessFiles(route || '');
+    return { title: route, items };
+
 };
 
 
@@ -24,6 +26,7 @@ function capitalize(str?: string) {
 export default function ListPage() {
     let data = useLoaderData<typeof loader>();
     const { title, items } = data
+    console.log('====data list page======', data)
     const gridItems = items.map((item) => {
         return {
             title: item.title,
