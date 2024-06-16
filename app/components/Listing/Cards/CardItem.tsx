@@ -9,13 +9,14 @@ export type CardItemProps = {
 * title, subtitle, descriptoin, image
 */
 export const CardItem = (props: CardItemProps) => {
-    const {title, href, description} = props
+    const {title, href, description, image} = props
+    //https://source.unsplash.com/random?sig=
     //https://unsplash.com/blog/content/images/2024/02/Hour-for-Earth--Blog-.gif
     return (
         <div className="max-w-4xl">
             <div className="bg-white dark:bg-slate-800 shadow-md border border-gray-200 dark:border-gray-400 rounded-lg max-w-3xl mb-5">
                 <a href={href || '#'}>
-                    <img className="object-cover rounded-t-lg max-h-72 w-full" src="https://source.unsplash.com/random?sig=" alt="" />
+                    <img className="object-cover rounded-t-lg max-h-72 w-full" src={image} alt="" />
                 </a>
                 <div className="p-5 min-w-72">
                     <a href={href || '#'}>
